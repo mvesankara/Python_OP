@@ -1,6 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-url = "https://www.gov.uk/search/news-and-communications"
+url = "https://www.it-connect.fr/actualites/"
 reponse = requests.get(url)
 page = reponse.content
-print (page)
+soup = BeautifulSoup(page, 'html.parser')
+
+titres = soup.find_all("h2")
+print(titres)
